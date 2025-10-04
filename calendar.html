@@ -1,3 +1,4 @@
+<!-- VERSIJA 2 - ar aizvēršanas pogu -->
 <!DOCTYPE html>
 <html lang="lv">
 <head>
@@ -233,8 +234,14 @@
     <script>
         // Inicializē Telegram WebApp
         let tg = window.Telegram.WebApp;
-        tg.expand();
         tg.ready();
+        
+        // Izveido aizvēršanas pogu Telegram saskarnē
+        tg.MainButton.setText('Aizvērt');
+        tg.MainButton.show();
+        tg.MainButton.onClick(function() {
+            tg.close();
+        });
 
         function closeApp() {
             tg.close();
