@@ -1,0 +1,240 @@
+<!-- VERSIJA 2 - ar aizvēršanas pogu -->
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalniņu Camp - Kalendārs</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .month {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .month-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .day-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .day-item:hover {
+            transform: translateX(5px);
+        }
+
+        .day-item.available {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-left: 4px solid #00b894;
+        }
+
+        .day-item.booked {
+            background: #e0e0e0;
+            opacity: 0.6;
+            border-left: 4px solid #636e72;
+        }
+
+        .day-info {
+            flex: 1;
+        }
+
+        .day-date {
+            font-weight: bold;
+            font-size: 16px;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+
+        .day-time {
+            font-size: 14px;
+            color: #636e72;
+        }
+
+        .status {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .status.available {
+            color: #00b894;
+        }
+
+        .status.booked {
+            color: #636e72;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏕️ Pieejamie Laiki</h1>
+
+        <!-- Janvāris 2026 -->
+        <div class="month">
+            <div class="month-title">📅 Janvāris 2026</div>
+            
+            <div class="day-item available">
+                <div class="day-info">
+                    <div class="day-date">1. Janvāris (Ceturtdiena)</div>
+                    <div class="day-time">⏰ 10:00 vai 14:00</div>
+                </div>
+                <div class="status available">✅</div>
+            </div>
+        </div>
+
+        <!-- Maijs 2026 -->
+        <div class="month">
+            <div class="month-title">📅 Maijs 2026</div>
+            
+            <div class="day-item available">
+                <div class="day-info">
+                    <div class="day-date">1. Maijs (Piektdiena)</div>
+                    <div class="day-time">⏰ 10:00 vai 14:00</div>
+                </div>
+                <div class="status available">✅</div>
+            </div>
+        </div>
+
+        <!-- Jūnijs 2026 -->
+        <div class="month">
+            <div class="month-title">📅 Jūnijs 2026</div>
+            
+            <div class="day-item available">
+                <div class="day-info">
+                    <div class="day-date">5. Jūnijs (Piektdiena)</div>
+                    <div class="day-time">⏰ 10:00 vai 14:00</div>
+                </div>
+                <div class="status available">✅</div>
+            </div>
+
+            <div class="day-item available">
+                <div class="day-info">
+                    <div class="day-date">13. Jūnijs (Sestdiena)</div>
+                    <div class="day-time">⏰ 10:00 vai 14:00</div>
+                </div>
+                <div class="status available">✅</div>
+            </div>
+
+            <div class="day-item available">
+                <div class="day-info">
+                    <div class="day-date">20. Jūnijs (Sestdiena)</div>
+                    <div class="day-time">⏰ 10:00 vai 14:00</div>
+                </div>
+                <div class="status available">✅</div>
+            </div>
+
+            <div class="day-item booked">
+                <div class="day-info">
+                    <div class="day-date">27. Jūnijs (Sestdiena)</div>
+                    <div class="day-time">Aizņemts</div>
+                </div>
+                <div class="status booked">❌</div>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="info-box">
+            <h3>ℹ️ Informācija</h3>
+            <p>
+                <strong>Ilgums:</strong> ~2-3 stundas<br>
+                <strong>Maršruts:</strong> ~8km pa Mazo Juglu
+            </p>
+            <button class="contact-btn" onclick="closeApp()">
+                📞 Rezervēt (+371 26616016)
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Inicializē Telegram WebApp
+        let tg = window.Telegram.WebApp;
+        tg.ready();
+        
+        // Izveido aizvēršanas pogu Telegram saskarnē
+        tg.MainButton.setText('Aizvērt');
+        tg.MainButton.show();
+        tg.MainButton.onClick(function() {
+            tg.close();
+        });
+
+        function closeApp() {
+            tg.close();
+        }
+    </script>
+</body>
+</html>
